@@ -1,0 +1,43 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2512
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs28 \cf0 \
+movie_inf( (PK) movie_ID
+\f1 :int(15), distribution:varchar(50), duration:int(3), language:varchar(50), prod_country:varchar(50), prod_year:varchar(50), type:varchar(50), title:varchar(50) )\
+\
+\
+inf_staff( (PK) movie_ID:int(15), staff_ID:int(15) )\
+\
+\
+movie_staff( (PK) staff_ID:int(15), (FK) movie_ID:int(15), fname:varchar(50), lname:varchar(50), nationality:varchar(50), date_of_birth:date(20), date_of_death:date(20), is_director:boolean, is_actor:boolean)\
+\
+\
+ticket( (PK) ticket_number:int(15), (FK) cinema_ID:int(15), (FK) hall_ID:int(15), (FK) movie_ID:int(15), (FK) title:varchar(50), date:date(30), time:varchar(15), (FK) serial_number:int(15), (FK) row_ID:int(15), (FK) seat_ID:int(15), (FK) sreening_number:int(15) )\
+\
+\
+schedule( (PK) schreening_number:int(15), hall_ID:int(15), cinema:int(15), movie_ID:int(15), lanuage:varchar(50), time:varchar(15), date:date(30) )\
+\
+\
+seating_plan( (PK) seat_ID:int(15), (FK) row_ID:int(15), (FK) hall_ID:int(15), (FK) cinema_ID:int(15), is_available:boolean, (FK) screening_number:id(15) )\
+\
+\
+cinema( (PK) cinema_ID:int(15), cinema_address:varchar(100), ciname_name:varchar(50) )\
+\
+\
+hall( (PK) hall:int(15), (FK) cinema_ID:int(15) )\
+\
+\
+row( (PK) row_ID:int(15), (FK) hall_ID:int(15), (FK) cinema_ID:int(15), is_box:boolean), is_standard_price:boolean) )\
+\
+\
+(schwache entitiy von \'93row)\
+pricing( (FK) row_ID:int(15), standard_price:double(2), individual_price:double(2) )\
+\
+\
+seat( (PK) seat_ID:int(15), (FK) row_ID:int(15), (FK) hall_ID:int(15), (FK) cinema_ID:int(15) )\
+\
+}
